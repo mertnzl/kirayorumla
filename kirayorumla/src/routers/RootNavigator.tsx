@@ -3,9 +3,12 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {View,TouchableOpacity,Text} from 'react-native';
 import HomeScreen from '../screens/HomeScreen';
 import ProfileScreen from '../screens/ProfileScreen';
-import CommentScreen from '../screens/CommentScreen';
+import CategoryFilterScreen from '../screens/CategoryFilterScreen';
 import { useNavigation } from "@react-navigation/native";
 import { Feather,FontAwesome5 ,MaterialCommunityIcons } from '@expo/vector-icons';
+import HomeNavigator from './HomeNavigator';
+import ProfileNavigator from './ProfileNavigator';
+import CommentScreen from '../screens/CommentScreen';
 
 const Tab = createBottomTabNavigator();
  
@@ -33,22 +36,21 @@ const RootNavigator = () => {
          component={CommentScreen}
          options={{
             tabBarIcon: ({ color }) => (
-
-            
             <MaterialCommunityIcons name="comment-processing-outline" size={24} color={color} />
             ),
           }}
           />
-           <Tab.Screen name="Home"
-         component={HomeScreen}
+             <Tab.Screen name="Home"
+         component={HomeNavigator}
          options={{
             tabBarIcon: ({ color }) => (
             <FontAwesome5 name="home" size={24} color={color} />
             ),
           }}
         />
+        
         <Tab.Screen name="Profile"
-         component={ProfileScreen}
+         component={ProfileNavigator}
          options={{
             tabBarIcon: ({ color }) => (
             <Feather name="user" size={24} color={color} />

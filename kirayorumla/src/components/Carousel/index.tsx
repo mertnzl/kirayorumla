@@ -15,10 +15,6 @@ const index = () => {
   
     ])
 
-    
-
-
-
     const onViewRef = React.useRef((viewableItems) => {
         if (viewableItems.viewableItems.length > 0) {
           setActiveIndex(viewableItems.viewableItems[0].index || 0);

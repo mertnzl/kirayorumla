@@ -1,33 +1,44 @@
 import { View, Text,ScrollView,StyleSheet} from 'react-native'
 import React,{useState} from 'react'
 import CategoryItem from '../CategoryItem'
-import productSite from '../../../assets/productSite'
+import categorys from '../../../assets/categorys'
 
 
 const index = () => {
 
-    const [category,setCategory]=useState(productSite)
+    const [category,setCategory]=useState(categorys)
 
 
 
   return (
-    <ScrollView>
-
+    <View
+   // showsVerticalScrollIndicator={false}
+    //bounces={true}
+    >
+          <Text style={{fontSize:20,fontWeight:'bold',color:'#023e8a',marginTop:20, flexDirection:'row',alignSelf:'center'}}>Siteler</Text>
         <View style={styles.list}>
-            <Text style={{fontSize:20,fontWeight:'bold',color:'#616161',marginTop:20,marginLeft:20}}>Categories</Text>
+          
         {category.map((item)=>(
             <CategoryItem key={item.id} item={item}/>
         ))}
 
         </View>
       
-    </ScrollView>
+    </View>
   )
 }
 
 export default index
 const styles=StyleSheet.create({
     list:{
+        flex: 1,
+        flexDirection: "row",
+        flexWrap: "wrap",
+        marginBottom:20,
+        //backgroundColor: "red",
+        
+       
+       
 
 
  },
